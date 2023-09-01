@@ -4537,6 +4537,7 @@ self.C3_GetObjectRefTable = function () {
 		C3.Behaviors.Anchor.Acts.SetEnabled,
 		C3.Plugins.Spritefont2.Acts.SetInstanceVar,
 		C3.Plugins.Sprite.Acts.AddChild,
+		C3.ScriptsInEvents.Game_es_Event38_Act27,
 		C3.Plugins.System.Cnds.CompareBoolVar,
 		C3.Plugins.AJAX.Acts.RequestFile,
 		C3.Plugins.System.Acts.SetBoolVar,
@@ -4611,6 +4612,7 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Sprite.Exps.AnimationFrame,
 		C3.Plugins.LocalStorage.Acts.SetItem,
 		C3.Plugins.Arr.Exps.AsJSON,
+		C3.ScriptsInEvents.Game_es_Event135_Act5,
 		C3.Plugins.Sprite.Acts.SetX,
 		C3.Behaviors.Tween.Acts.TweenOneProperty,
 		C3.Plugins.Touch.Cnds.OnTouchStart,
@@ -4649,6 +4651,7 @@ self.C3_GetObjectRefTable = function () {
 		C3.Behaviors.Fade.Acts.StartFade,
 		C3.Plugins.Sprite.Acts.SetEffectParam,
 		C3.Plugins.Arr.Acts.Pop,
+		C3.ScriptsInEvents.Ecity_Event30_Act29,
 		C3.Behaviors.Bullet.Acts.SetGravity,
 		C3.Behaviors.Bullet.Acts.SetSpeed,
 		C3.Behaviors.Bullet.Acts.SetAngleOfMotion,
@@ -4670,7 +4673,8 @@ self.C3_GetObjectRefTable = function () {
 		C3.ScriptsInEvents.Functions_es_Event11_Act1,
 		C3.ScriptsInEvents.Functions_es_Event13_Act1,
 		C3.ScriptsInEvents.Functions_es_Event15_Act1,
-		C3.ScriptsInEvents.Functions_es_Event17_Act1
+		C3.ScriptsInEvents.Functions_es_Event17_Act1,
+		C3.ScriptsInEvents.Functions_es_Event19_Act1
 	];
 };
 self.C3_JsPropNameTable = [
@@ -4761,6 +4765,7 @@ self.C3_JsPropNameTable = [
 	{Scale: 0},
 	{Sound: 0},
 	{FirstStart: 0},
+	{OwnedBuildings_Data: 0},
 	{TargetX: 0},
 	{TargetY: 0},
 	{X: 0},
@@ -5288,6 +5293,7 @@ self.C3_ExpressionFuncs = [
 			const f1 = p._GetNode(1).GetBoundMethod();
 			return () => f0(f1(50, 100));
 		},
+		() => "BP_MoneyEarned",
 		() => "BP_Money",
 		() => 675,
 		() => 6,
@@ -5307,6 +5313,10 @@ self.C3_ExpressionFuncs = [
 			return () => f0(f1(n2.ExpObject()));
 		},
 		() => "OwnedBuildings",
+		p => {
+			const n0 = p._GetNode(0);
+			return () => (n0.ExpObject()).toString();
+		},
 		p => {
 			const v0 = p._GetNode(0).GetVar();
 			return () => (v0.GetValue() - 1);
