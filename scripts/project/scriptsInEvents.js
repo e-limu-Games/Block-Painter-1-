@@ -8,21 +8,6 @@ const scriptsInEvents = {
 		console.log("dataaaa",runtime.globalVars.OwnedBuildings_Data);
 	},
 
-	async Game_es_Event135_Act5(runtime, localVars)
-	{
-		console.log("Raw",runtime.objects.OwnedBuildings);
-		//console.log("Json",runtime.objects.OwnedBuildings.AsJSON);
-		console.log("Test temp",runtime.globalVars.OwnedBuildings_Data);
-		
-		//var jsonData = //JSON.stringify(runtime.objects.OwnedBuildings);
-		//console.log(jsonData);
-	},
-
-	async Ecity_Event30_Act29(runtime, localVars)
-	{
-		
-	},
-
 	async Loading_es_Event3_Act4(runtime, localVars)
 	{
 		console.log("current level " + runtime.globalVars.Level);
@@ -60,7 +45,12 @@ const scriptsInEvents = {
 				{
 					runtime.globalVars.Level = obj.payload.BP_Level;
 					runtime.globalVars.Money = obj.payload.BP_Money;
-					runtime.globalVars.OwnedBuildings_Data = String(obj.payload.BP_OwnedBuildingsData);
+					
+					runtime.globalVars.OwnedBuildings_Data = JSON.stringify(obj.payload.BP_OwnedBuildings_Data);
+					runtime.objects.OwnedBuildings= JSON.parse(runtime.globalVars.OwnedBuildings_Data);
+					
+					runtime.globalVars.BuildedBuildings_Data = JSON.stringify(obj.payload.BP_BuildedBuildings);
+					runtime.objects.BuildedBuildings= JSON.parse(runtime.globalVars.BuildedBuildings_Data) ;
 					if (typeof obj.payload.BP_Level === 'undefined'){
 				runtime.globalVars.Level = 1;
 				}
@@ -68,9 +58,17 @@ const scriptsInEvents = {
 				if (typeof obj.payload.BP_Money === 'undefined'){
 				runtime.globalVars.Money = 0;
 				}
-				if (typeof obj.payload.BP_OwnedBuildingsData === 'undefined'){
-			 runtime.globalVars.OwnedBuildings_Data = {"c2array":true,"size":[1,1,1],"data":[[[7]]]};
+				if (typeof obj.payload.BP_OwnedBuildings_Data === 'undefined'){
+			 runtime.globalVars.OwnedBuildings_Data = JSON.stringify({"c2array":true,"size":[1,1,1],"data":[[[7]]]});
+			runtime.objects.OwnedBuildings= JSON.parse(runtime.globalVars.OwnedBuildings_Data) ;
 				}
+					if (typeof obj.payload.BP_BuildedBuildings === 'undefined'){
+			 runtime.globalVars.BuildedBuildings_Data = JSON.stringify({"c2array":true,"size":[1,3,1],"data":[[["22"],[2],[0]]]});
+			 runtime.objects.BuildedBuildings= JSON.parse(runtime.globalVars.BuildedBuildings_Data);
+			
+				}
+				
+				
 				}
 			}
 		})

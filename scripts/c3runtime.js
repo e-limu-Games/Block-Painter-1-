@@ -4610,9 +4610,7 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Sprite.Exps.AnimationFrameCount,
 		C3.Plugins.Arr.Acts.Push,
 		C3.Plugins.Sprite.Exps.AnimationFrame,
-		C3.Plugins.LocalStorage.Acts.SetItem,
 		C3.Plugins.Arr.Exps.AsJSON,
-		C3.ScriptsInEvents.Game_es_Event135_Act5,
 		C3.Plugins.Sprite.Acts.SetX,
 		C3.Behaviors.Tween.Acts.TweenOneProperty,
 		C3.Plugins.Touch.Cnds.OnTouchStart,
@@ -4626,7 +4624,6 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Audio.Acts.SetSilent,
 		C3.Plugins.Audio.Acts.SetMasterVolume,
 		C3.Plugins.System.Acts.SetLayoutScale,
-		C3.Plugins.LocalStorage.Acts.CheckItemExists,
 		C3.Plugins.System.Cnds.For,
 		C3.Plugins.TiledBg.Exps.X,
 		C3.Plugins.TiledBg.Exps.Y,
@@ -4634,10 +4631,6 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Touch.Exps.Y,
 		C3.Plugins.Sprite.Cnds.CompareX,
 		C3.Plugins.Sprite.Cnds.CompareY,
-		C3.Plugins.LocalStorage.Cnds.OnItemExists,
-		C3.Plugins.Arr.Acts.JSONLoad,
-		C3.Plugins.LocalStorage.Exps.ItemValue,
-		C3.Plugins.LocalStorage.Cnds.OnItemMissing,
 		C3.Plugins.Arr.Cnds.ArrForEach,
 		C3.Plugins.Arr.Exps.At,
 		C3.Plugins.Arr.Exps.CurX,
@@ -4651,7 +4644,6 @@ self.C3_GetObjectRefTable = function () {
 		C3.Behaviors.Fade.Acts.StartFade,
 		C3.Plugins.Sprite.Acts.SetEffectParam,
 		C3.Plugins.Arr.Acts.Pop,
-		C3.ScriptsInEvents.Ecity_Event30_Act29,
 		C3.Behaviors.Bullet.Acts.SetGravity,
 		C3.Behaviors.Bullet.Acts.SetSpeed,
 		C3.Behaviors.Bullet.Acts.SetAngleOfMotion,
@@ -4771,6 +4763,7 @@ self.C3_JsPropNameTable = [
 	{X: 0},
 	{Y: 0},
 	{MoneyEarned: 0},
+	{BuildedBuildings_Data: 0},
 	{Levelinit: 0},
 	{UserEmail: 0},
 	{WebAppUrl: 0},
@@ -5312,11 +5305,11 @@ self.C3_ExpressionFuncs = [
 			const n2 = p._GetNode(2);
 			return () => f0(f1(n2.ExpObject()));
 		},
-		() => "OwnedBuildings",
 		p => {
 			const n0 = p._GetNode(0);
 			return () => (n0.ExpObject()).toString();
 		},
+		() => "BP_OwnedBuildings_Data",
 		p => {
 			const v0 = p._GetNode(0).GetVar();
 			return () => (v0.GetValue() - 1);
@@ -5342,7 +5335,6 @@ self.C3_ExpressionFuncs = [
 		},
 		() => -100,
 		() => "Init",
-		() => "BuildedBuildings",
 		() => "UICity",
 		() => 55,
 		() => "z",
@@ -5535,6 +5527,7 @@ self.C3_ExpressionFuncs = [
 			const n0 = p._GetNode(0);
 			return () => (n0.ExpObject() - 75);
 		},
+		() => "BP_BuildedBuildings",
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
 			return () => f0(0.5);
@@ -5558,7 +5551,6 @@ self.C3_ExpressionFuncs = [
 			const n1 = p._GetNode(1);
 			return () => n0.ExpObject(n1.ExpInstVar());
 		},
-		() => "Money",
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
 			const n1 = p._GetNode(1);
