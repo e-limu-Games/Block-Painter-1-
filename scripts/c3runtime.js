@@ -4657,6 +4657,7 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.System.Exps.loadingprogress,
 		C3.ScriptsInEvents.Loading_es_Event3_Act4,
 		C3.Plugins.Audio.Acts.Play,
+		C3.Plugins.Browser.Acts.GoToURLWindow,
 		C3.ScriptsInEvents.Functions_es_Event3_Act1,
 		C3.ScriptsInEvents.Functions_es_Event5_Act1,
 		C3.ScriptsInEvents.Functions_es_Event7_Act1,
@@ -4737,6 +4738,7 @@ self.C3_JsPropNameTable = [
 	{SoundButton: 0},
 	{Audio: 0},
 	{Browser: 0},
+	{MoreGamesButton: 0},
 	{Family1: 0},
 	{Level: 0},
 	{Phase: 0},
@@ -5571,6 +5573,8 @@ self.C3_ExpressionFuncs = [
 		},
 		() => -10,
 		() => "fx",
+		() => "https://codecanyon.net/user/vetx/portfolio",
+		() => "NewWindow",
 		() => "Interface Functions"
 ];
 
