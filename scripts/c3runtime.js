@@ -4738,6 +4738,7 @@ self.C3_JsPropNameTable = [
 	{SoundButton: 0},
 	{Audio: 0},
 	{Browser: 0},
+	{MoreGamesButton: 0},
 	{Family1: 0},
 	{Level: 0},
 	{Phase: 0},
