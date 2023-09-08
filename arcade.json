@@ -1,0 +1,40 @@
+{
+	"name": "Block Painter",
+	"version": "1.0.0.0",
+	"description": "",
+	"id": "",
+	"unique-id": "jga7k1fhrf6",
+	"viewport-width": 720,
+	"viewport-height": 1280,
+	"author": "",
+	"email": "",
+	"website": "",
+	"orientations": "portrait",
+	"c2version": "244",
+	"c3version": "r350",
+	"ife": false,
+	"used-plugins": [
+		"AJAX",
+		"Arr",
+		"Json",
+		"Keyboard",
+		"LocalStorage",
+		"Touch",
+		"Sprite",
+		"TiledBg",
+		"Spritefont2",
+		"Audio",
+		"Browser"
+	],
+	"used-behaviors": [
+		"Tween",
+		"Rotate",
+		"Anchor",
+		"scrollto",
+		"Fade",
+		"Bullet",
+		"Timer",
+		"Sin",
+		"MoveTo"
+	]
+}
