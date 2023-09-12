@@ -4537,7 +4537,6 @@ self.C3_GetObjectRefTable = function () {
 		C3.Behaviors.Anchor.Acts.SetEnabled,
 		C3.Plugins.Spritefont2.Acts.SetInstanceVar,
 		C3.Plugins.Sprite.Acts.AddChild,
-		C3.ScriptsInEvents.Game_es_Event38_Act27,
 		C3.Plugins.System.Cnds.CompareBoolVar,
 		C3.Plugins.AJAX.Acts.RequestFile,
 		C3.Plugins.System.Acts.SetBoolVar,
@@ -4607,6 +4606,7 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.System.Acts.AddVar,
 		C3.Plugins.Sprite.Acts.SetAnimSpeed,
 		C3.Plugins.Sprite.Acts.StartAnim,
+		C3.Plugins.LocalStorage.Acts.SetItem,
 		C3.Plugins.Sprite.Exps.AnimationFrameCount,
 		C3.Plugins.Arr.Acts.Push,
 		C3.Plugins.Sprite.Exps.AnimationFrame,
@@ -4624,6 +4624,7 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Audio.Acts.SetSilent,
 		C3.Plugins.Audio.Acts.SetMasterVolume,
 		C3.Plugins.System.Acts.SetLayoutScale,
+		C3.Plugins.LocalStorage.Acts.CheckItemExists,
 		C3.Plugins.System.Cnds.For,
 		C3.Plugins.TiledBg.Exps.X,
 		C3.Plugins.TiledBg.Exps.Y,
@@ -4631,7 +4632,10 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Touch.Exps.Y,
 		C3.Plugins.Sprite.Cnds.CompareX,
 		C3.Plugins.Sprite.Cnds.CompareY,
+		C3.Plugins.LocalStorage.Cnds.OnItemExists,
 		C3.Plugins.Arr.Acts.JSONLoad,
+		C3.Plugins.LocalStorage.Exps.ItemValue,
+		C3.Plugins.LocalStorage.Cnds.OnItemMissing,
 		C3.Plugins.Arr.Cnds.ArrForEach,
 		C3.Plugins.Arr.Exps.At,
 		C3.Plugins.Arr.Exps.CurX,
@@ -4656,16 +4660,9 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Arr.Cnds.IsEmpty,
 		C3.Plugins.System.Cnds.TriggerOnce,
 		C3.Plugins.System.Exps.loadingprogress,
+		C3.Plugins.System.Cnds.OnLoadFinished,
 		C3.Plugins.Audio.Acts.Play,
-		C3.ScriptsInEvents.Functions_es_Event3_Act1,
-		C3.ScriptsInEvents.Functions_es_Event5_Act1,
-		C3.ScriptsInEvents.Functions_es_Event7_Act1,
-		C3.ScriptsInEvents.Functions_es_Event9_Act1,
-		C3.ScriptsInEvents.Functions_es_Event11_Act1,
-		C3.ScriptsInEvents.Functions_es_Event13_Act1,
-		C3.ScriptsInEvents.Functions_es_Event15_Act1,
-		C3.ScriptsInEvents.Functions_es_Event17_Act1,
-		C3.ScriptsInEvents.Functions_es_Event19_Act1
+		C3.Plugins.Browser.Acts.GoToURLWindow
 	];
 };
 self.C3_JsPropNameTable = [
@@ -4737,6 +4734,7 @@ self.C3_JsPropNameTable = [
 	{SoundButton: 0},
 	{Audio: 0},
 	{Browser: 0},
+	{MoreGamesButton: 0},
 	{Family1: 0},
 	{Level: 0},
 	{Phase: 0},
@@ -4755,25 +4753,12 @@ self.C3_JsPropNameTable = [
 	{Scale: 0},
 	{Sound: 0},
 	{FirstStart: 0},
-	{OwnedBuildings_Data: 0},
 	{TargetX: 0},
 	{TargetY: 0},
 	{X: 0},
 	{Y: 0},
 	{MoneyEarned: 0},
-	{BuildedBuildings_Data: 0},
-	{Levelinit: 0},
-	{UserEmail: 0},
-	{WebAppUrl: 0},
-	{GameAction: 0},
-	{GameKey: 0},
-	{UserFirstname: 0},
-	{UserLastname: 0},
-	{Username: 0},
-	{PlayernameTest: 0},
-	{GameToOpen: 0},
-	{dataKey: 0},
-	{value: 0}
+	{Levelinit: 0}
 ];
 }
 
@@ -5273,7 +5258,7 @@ self.C3_ExpressionFuncs = [
 		() => "Transition1",
 		() => "WallCompleted2",
 		() => 60,
-		() => "BP_Level",
+		() => "Level",
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
 			return () => f0("UILevelCompleted");
@@ -5284,8 +5269,7 @@ self.C3_ExpressionFuncs = [
 			const f1 = p._GetNode(1).GetBoundMethod();
 			return () => f0(f1(50, 100));
 		},
-		() => "BP_MoneyEarned",
-		() => "BP_Money",
+		() => "Money",
 		() => 675,
 		() => 6,
 		() => 927,
@@ -5303,11 +5287,7 @@ self.C3_ExpressionFuncs = [
 			const n2 = p._GetNode(2);
 			return () => f0(f1(n2.ExpObject()));
 		},
-		p => {
-			const n0 = p._GetNode(0);
-			return () => (n0.ExpObject()).toString();
-		},
-		() => "BP_OwnedBuildings_Data",
+		() => "OwnedBuildings",
 		p => {
 			const v0 = p._GetNode(0).GetVar();
 			return () => (v0.GetValue() - 1);
@@ -5333,6 +5313,7 @@ self.C3_ExpressionFuncs = [
 		},
 		() => -100,
 		() => "Init",
+		() => "BuildedBuildings",
 		() => "UICity",
 		() => 55,
 		() => "z",
@@ -5525,7 +5506,6 @@ self.C3_ExpressionFuncs = [
 			const n0 = p._GetNode(0);
 			return () => (n0.ExpObject() - 75);
 		},
-		() => "BP_BuildedBuildings",
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
 			return () => f0(0.5);
@@ -5560,6 +5540,11 @@ self.C3_ExpressionFuncs = [
 			const f0 = p._GetNode(0).GetBoundMethod();
 			return () => (f0() % 2);
 		},
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			const f1 = p._GetNode(1).GetBoundMethod();
+			return () => f0(f1(2, 25));
+		},
 		() => "Loader",
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
@@ -5571,7 +5556,8 @@ self.C3_ExpressionFuncs = [
 		},
 		() => -10,
 		() => "fx",
-		() => "Interface Functions"
+		() => "https://codecanyon.net/user/vetx/portfolio",
+		() => "NewWindow"
 ];
 
 
