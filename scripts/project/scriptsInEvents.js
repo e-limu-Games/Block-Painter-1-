@@ -55,10 +55,10 @@ const scriptsInEvents = {
 				}
 				
 			/*	if (typeof obj.payload.BP_OwnedBuildings_Data === 'undefined'){
-			 runtime.globalVars.OwnedBuildings_Data = JSON.stringify({"c2array":true,"size":[1,1,1],"data":[[[7]]]});}  */
-				
+			 runtime.globalVars.OwnedBuildings_Data = JSON.stringify({"c2array":true,"size":[1,1,1],"data":[[[7]]]});}
+				  */
 					if (typeof obj.payload.BP_BuildedBuildings === 'undefined'){
-			 runtime.globalVars.BuildedBuildings_Data = JSON.stringify({"c2array":true,"size":[1,3,1],"data":[[["22"],[2],[0]]]});}
+			 runtime.globalVars.BuildedBuildings_Data = JSON.stringify({"c2array":true,"size":[1,3,1],"data":[[["22"],[2],[0]]]});} 
 				
 					}
 			}
