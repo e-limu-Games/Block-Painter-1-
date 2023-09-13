@@ -3,11 +3,6 @@
 
 const scriptsInEvents = {
 
-	async Game_es_Event38_Act27(runtime, localVars)
-	{
-		console.log("dataaaa",runtime.globalVars.OwnedBuildings_Data);
-	},
-
 	async Functions_es_Event3_Act1(runtime, localVars)
 	{
 		window.addEventListener("message", event=>{
@@ -41,9 +36,9 @@ const scriptsInEvents = {
 					runtime.globalVars.Money = obj.payload.BP_Money;
 					
 				/*	runtime.globalVars.OwnedBuildings_Data = JSON.stringify(obj.payload.BP_OwnedBuildings_Data);
-					runtime.objects.OwnedBuildings= JSON.parse(runtime.globalVars.OwnedBuildings_Data);
+					runtime.objects.OwnedBuildings= JSON.parse(runtime.globalVars.OwnedBuildings_Data);  */
 						
-					runtime.globalVars.BuildedBuildings_Data = JSON.stringify(obj.payload.BP_BuildedBuildings); */
+					runtime.globalVars.BuildedBuildings_Data = JSON.stringify(obj.payload.BP_BuildedBuildings);
 					//runtime.objects.BuildedBuildings= JSON.stringify(obj.payload.BP_BuildedBuildings) ;
 				
 					if (typeof obj.payload.BP_Level === 'undefined'){

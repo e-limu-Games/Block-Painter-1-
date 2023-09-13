@@ -4537,7 +4537,6 @@ self.C3_GetObjectRefTable = function () {
 		C3.Behaviors.Anchor.Acts.SetEnabled,
 		C3.Plugins.Spritefont2.Acts.SetInstanceVar,
 		C3.Plugins.Sprite.Acts.AddChild,
-		C3.ScriptsInEvents.Game_es_Event38_Act27,
 		C3.Plugins.System.Cnds.CompareBoolVar,
 		C3.Plugins.AJAX.Acts.RequestFile,
 		C3.Plugins.System.Acts.SetBoolVar,
