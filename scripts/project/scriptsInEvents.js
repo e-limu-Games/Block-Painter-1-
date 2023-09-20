@@ -33,9 +33,9 @@ const scriptsInEvents = {
 				else if(obj.action === "retrieve_user_data")
 				{
 					runtime.globalVars.Level = obj.payload.BP_Level;
-					if (obj.payload.BP_Level >25){
-					runtime.globalVars.Level = 1;
-					}
+					//if (obj.payload.BP_Level >25){
+					//runtime.globalVars.Level = 1;
+					//}
 					runtime.globalVars.Money = obj.payload.BP_Money;
 					
 				runtime.globalVars.OwnedBuildings_Data = obj.payload.BP_OwnedBuildings_Data;
