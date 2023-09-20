@@ -4742,7 +4742,8 @@ self.C3_GetObjectRefTable = function () {
 		C3.ScriptsInEvents.Functions_es_Event13_Act1,
 		C3.ScriptsInEvents.Functions_es_Event15_Act1,
 		C3.ScriptsInEvents.Functions_es_Event17_Act1,
-		C3.ScriptsInEvents.Functions_es_Event19_Act1
+		C3.ScriptsInEvents.Functions_es_Event19_Act1,
+		C3.ScriptsInEvents.Functions_es_Event21_Act1
 	];
 };
 self.C3_JsPropNameTable = [
@@ -5384,7 +5385,6 @@ self.C3_ExpressionFuncs = [
 			const n0 = p._GetNode(0);
 			return () => (n0.ExpObject()).toString();
 		},
-		() => "BP_OwnedBuildings_Data",
 		p => {
 			const v0 = p._GetNode(0).GetVar();
 			return () => (v0.GetValue() - 1);
@@ -5602,7 +5602,7 @@ self.C3_ExpressionFuncs = [
 			const n0 = p._GetNode(0);
 			return () => (n0.ExpObject() - 75);
 		},
-		() => "BP_BuildedBuildings",
+		() => "BP_OwnedBuildings_Data",
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
 			return () => f0(0.5);
@@ -5626,6 +5626,7 @@ self.C3_ExpressionFuncs = [
 			const n1 = p._GetNode(1);
 			return () => n0.ExpObject(n1.ExpInstVar());
 		},
+		() => "BP_BuildedBuildings",
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
 			const n1 = p._GetNode(1);
