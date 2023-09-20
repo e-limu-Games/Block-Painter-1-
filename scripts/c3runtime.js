@@ -5383,6 +5383,7 @@ self.C3_ExpressionFuncs = [
 			const n0 = p._GetNode(0);
 			return () => (n0.ExpObject()).toString();
 		},
+		() => "BP_OwnedBuildings_Data",
 		p => {
 			const v0 = p._GetNode(0).GetVar();
 			return () => (v0.GetValue() - 1);
@@ -5602,7 +5603,6 @@ self.C3_ExpressionFuncs = [
 			return () => (n0.ExpObject() - 75);
 		},
 		() => "BP_BuildedBuildings",
-		() => "BP_OwnedBuildings_Data",
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
 			return () => f0(0.5);
