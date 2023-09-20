@@ -4734,16 +4734,16 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.System.Cnds.TriggerOnce,
 		C3.Plugins.System.Exps.loadingprogress,
 		C3.Plugins.Audio.Acts.Play,
-		C3.ScriptsInEvents.Functions_es_Event3_Act1,
-		C3.ScriptsInEvents.Functions_es_Event5_Act1,
-		C3.ScriptsInEvents.Functions_es_Event7_Act1,
-		C3.ScriptsInEvents.Functions_es_Event9_Act1,
-		C3.ScriptsInEvents.Functions_es_Event11_Act1,
-		C3.ScriptsInEvents.Functions_es_Event13_Act1,
-		C3.ScriptsInEvents.Functions_es_Event15_Act1,
-		C3.ScriptsInEvents.Functions_es_Event17_Act1,
-		C3.ScriptsInEvents.Functions_es_Event19_Act1,
-		C3.ScriptsInEvents.Functions_es_Event21_Act1
+		C3.ScriptsInEvents.Functions_es_Event2_Act1,
+		C3.ScriptsInEvents.Functions_es_Event4_Act1,
+		C3.ScriptsInEvents.Functions_es_Event6_Act1,
+		C3.ScriptsInEvents.Functions_es_Event8_Act1,
+		C3.ScriptsInEvents.Functions_es_Event10_Act1,
+		C3.ScriptsInEvents.Functions_es_Event12_Act1,
+		C3.ScriptsInEvents.Functions_es_Event14_Act1,
+		C3.ScriptsInEvents.Functions_es_Event16_Act1,
+		C3.ScriptsInEvents.Functions_es_Event18_Act1,
+		C3.ScriptsInEvents.Functions_es_Event20_Act1
 	];
 };
 self.C3_JsPropNameTable = [
@@ -5648,8 +5648,7 @@ self.C3_ExpressionFuncs = [
 			return () => (221 + (279 * f0()));
 		},
 		() => -10,
-		() => "fx",
-		() => "Interface Functions"
+		() => "fx"
 ];
 
 

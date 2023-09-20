@@ -3,31 +3,31 @@
 
 const scriptsInEvents = {
 
-	async Functions_es_Event3_Act1(runtime, localVars)
+	async Functions_es_Event2_Act1(runtime, localVars)
 	{
 		window.addEventListener("message", event=>{
 			const obj = event.data;
 			if(obj && obj.action && obj.payload)
 			{
 				if(obj.action === "sign_in")
-				{
+				{	
 					runtime.globalVars.GameAction = obj.action;
-				//alert(runtime.globalVars.GameAction);
-				
-				runtime.globalVars.GameKey = obj.payload.app_key;
-				//alert(runtime.globalVars.GameKey);
-				
-				runtime.globalVars.UserEmail = obj.payload.user.email;
-				//alert(runtime.globalVars.UserEmail);
-				
-				runtime.globalVars.UserFirstname = obj.payload.user.firstName;
-				//alert(runtime.globalVars.UserFirstname);
-				
-				runtime.globalVars.UserLastname = obj.payload.user.lastName;
-				//alert(runtime.globalVars.UserLastname);
-				
-				runtime.globalVars.Username = obj.payload.user.username;
-				//alert(runtime.globalVars.Username);
+					//alert(runtime.globalVars.GameAction);
+					
+					runtime.globalVars.GameKey = obj.payload.app_key;
+					//alert(runtime.globalVars.GameKey);
+		
+					runtime.globalVars.UserEmail = obj.payload.user.email;
+					//alert(runtime.globalVars.UserEmail);
+		
+					runtime.globalVars.UserFirstname = obj.payload.user.firstName;
+					//alert(runtime.globalVars.UserFirstname);
+		
+					runtime.globalVars.UserLastname = obj.payload.user.lastName;
+					//alert(runtime.globalVars.UserLastname);
+		
+					runtime.globalVars.Username = obj.payload.user.username;
+					//alert(runtime.globalVars.Username);
 				}
 				
 				else if(obj.action === "retrieve_user_data")
@@ -40,7 +40,7 @@ const scriptsInEvents = {
 					
 			//	runtime.globalVars.OwnedBuildings_Data = obj.payload.BP_OwnedBuildings_Data;
 						
-					runtime.globalVars.BuildedBuildings_Data = obj.payload.BP_BuildedBuildings;
+					//runtime.globalVars.BuildedBuildings_Data = obj.payload.BP_BuildedBuildings;
 				
 					if (typeof obj.payload.BP_Level === 'undefined'){
 				runtime.globalVars.Level = 1;
@@ -61,7 +61,7 @@ const scriptsInEvents = {
 		})
 	},
 
-	async Functions_es_Event5_Act1(runtime, localVars)
+	async Functions_es_Event4_Act1(runtime, localVars)
 	{
 		window.parent.postMessage(
 		{
@@ -69,7 +69,7 @@ const scriptsInEvents = {
 		},"*");
 	},
 
-	async Functions_es_Event7_Act1(runtime, localVars)
+	async Functions_es_Event6_Act1(runtime, localVars)
 	{
 		window.parent.postMessage(
 		{
@@ -80,7 +80,7 @@ const scriptsInEvents = {
 		},"*");
 	},
 
-	async Functions_es_Event9_Act1(runtime, localVars)
+	async Functions_es_Event8_Act1(runtime, localVars)
 	{
 		window.parent.postMessage(
 		{
@@ -92,7 +92,7 @@ const scriptsInEvents = {
 		//alert("Posted " + localVars.GameToOpen);
 	},
 
-	async Functions_es_Event11_Act1(runtime, localVars)
+	async Functions_es_Event10_Act1(runtime, localVars)
 	{
 		window.parent.postMessage(
 		{
@@ -104,7 +104,7 @@ const scriptsInEvents = {
 		//alert("Posted")
 	},
 
-	async Functions_es_Event13_Act1(runtime, localVars)
+	async Functions_es_Event12_Act1(runtime, localVars)
 	{
 		window.parent.postMessage(
 		{
@@ -116,7 +116,7 @@ const scriptsInEvents = {
 		//alert("Posted")
 	},
 
-	async Functions_es_Event15_Act1(runtime, localVars)
+	async Functions_es_Event14_Act1(runtime, localVars)
 	{
 		window.parent.postMessage(
 		{
@@ -129,7 +129,33 @@ const scriptsInEvents = {
 		//alert("Posted")
 	},
 
-	async Functions_es_Event17_Act1(runtime, localVars)
+	async Functions_es_Event16_Act1(runtime, localVars)
+	{
+		window.parent.postMessage(
+		{
+		    "action": "update_user_data",
+			"payload": {
+				"dataKey": localVars.dataKey,
+				"value" : localVars.value
+			}
+		},"*");
+		//alert("Posted")
+	},
+
+	async Functions_es_Event18_Act1(runtime, localVars)
+	{
+		window.parent.postMessage(
+		{
+		    "action": "update_user_data",
+			"payload": {
+				"dataKey": localVars.dataKey,
+				"value" : localVars.value
+			}
+		},"*");
+		//alert("Posted")
+	},
+
+	async Functions_es_Event20_Act1(runtime, localVars)
 	{
 		window.parent.postMessage(
 		{
@@ -138,33 +164,6 @@ const scriptsInEvents = {
 				"app_key": "block-painter"
 			}
 		},"*");
-		//alert("Posted")
-	},
-
-	async Functions_es_Event19_Act1(runtime, localVars)
-	{
-		window.parent.postMessage(
-		{
-		    "action": "update_user_data",
-			"payload": {
-				"dataKey": localVars.dataKey,
-				"value" : localVars.value
-			}
-		},"*");
-		//alert("Posted")
-	},
-
-	async Functions_es_Event21_Act1(runtime, localVars)
-	{
-		window.parent.postMessage(
-		{
-		    "action": "update_user_data",
-			"payload": {
-				"dataKey": localVars.dataKey,
-				"value" : localVars.value
-			}
-		},"*");
-		//alert("Posted")
 	}
 
 };
