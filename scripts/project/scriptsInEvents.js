@@ -38,7 +38,7 @@ const scriptsInEvents = {
 					runtime.globalVars.Money = obj.payload.BP_Money;
 					
 						
-					runtime.globalVars.BuildedBuildings_Data = obj.payload.BP_BuildedBuildings;
+					//runtime.globalVars.BuildedBuildings_Data = obj.payload.BP_BuildedBuildings;
 				
 					if (typeof obj.payload.BP_Level === 'undefined'){
 				runtime.globalVars.Level = 1;

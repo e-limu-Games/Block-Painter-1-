@@ -4687,7 +4687,6 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Sprite.Exps.AnimationFrameCount,
 		C3.Plugins.Arr.Acts.Push,
 		C3.Plugins.Sprite.Exps.AnimationFrame,
-		C3.Plugins.LocalStorage.Acts.SetItem,
 		C3.Plugins.Arr.Exps.AsJSON,
 		C3.Plugins.Sprite.Acts.SetX,
 		C3.Behaviors.Tween.Acts.TweenOneProperty,
@@ -5380,7 +5379,10 @@ self.C3_ExpressionFuncs = [
 			const n2 = p._GetNode(2);
 			return () => f0(f1(n2.ExpObject()));
 		},
-		() => "OwnedBuildings",
+		p => {
+			const n0 = p._GetNode(0);
+			return () => (n0.ExpObject()).toString();
+		},
 		p => {
 			const v0 = p._GetNode(0).GetVar();
 			return () => (v0.GetValue() - 1);
