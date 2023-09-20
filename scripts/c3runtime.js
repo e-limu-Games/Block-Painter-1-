@@ -4684,10 +4684,10 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.System.Acts.AddVar,
 		C3.Plugins.Sprite.Acts.SetAnimSpeed,
 		C3.Plugins.Sprite.Acts.StartAnim,
-		C3.Plugins.LocalStorage.Acts.SetItem,
 		C3.Plugins.Sprite.Exps.AnimationFrameCount,
 		C3.Plugins.Arr.Acts.Push,
 		C3.Plugins.Sprite.Exps.AnimationFrame,
+		C3.Plugins.LocalStorage.Acts.SetItem,
 		C3.Plugins.Arr.Exps.AsJSON,
 		C3.Plugins.Sprite.Acts.SetX,
 		C3.Behaviors.Tween.Acts.TweenOneProperty,
@@ -4702,7 +4702,6 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Audio.Acts.SetSilent,
 		C3.Plugins.Audio.Acts.SetMasterVolume,
 		C3.Plugins.System.Acts.SetLayoutScale,
-		C3.Plugins.LocalStorage.Acts.CheckItemExists,
 		C3.Plugins.System.Cnds.For,
 		C3.Plugins.TiledBg.Exps.X,
 		C3.Plugins.TiledBg.Exps.Y,
@@ -4710,10 +4709,7 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Touch.Exps.Y,
 		C3.Plugins.Sprite.Cnds.CompareX,
 		C3.Plugins.Sprite.Cnds.CompareY,
-		C3.Plugins.LocalStorage.Cnds.OnItemExists,
 		C3.Plugins.Arr.Acts.JSONLoad,
-		C3.Plugins.LocalStorage.Exps.ItemValue,
-		C3.Plugins.LocalStorage.Cnds.OnItemMissing,
 		C3.Plugins.Arr.Cnds.ArrForEach,
 		C3.Plugins.Arr.Exps.At,
 		C3.Plugins.Arr.Exps.CurX,
@@ -4740,7 +4736,15 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.System.Exps.loadingprogress,
 		C3.Plugins.System.Cnds.OnLoadFinished,
 		C3.Plugins.Audio.Acts.Play,
-		C3.Plugins.Browser.Acts.GoToURLWindow
+		C3.ScriptsInEvents.Functions_es_Event2_Act1,
+		C3.ScriptsInEvents.Functions_es_Event4_Act1,
+		C3.ScriptsInEvents.Functions_es_Event6_Act1,
+		C3.ScriptsInEvents.Functions_es_Event8_Act1,
+		C3.ScriptsInEvents.Functions_es_Event10_Act1,
+		C3.ScriptsInEvents.Functions_es_Event12_Act1,
+		C3.ScriptsInEvents.Functions_es_Event14_Act1,
+		C3.ScriptsInEvents.Functions_es_Event16_Act1,
+		C3.ScriptsInEvents.Functions_es_Event18_Act1
 	];
 };
 self.C3_JsPropNameTable = [
@@ -4812,7 +4816,6 @@ self.C3_JsPropNameTable = [
 	{SoundButton: 0},
 	{Audio: 0},
 	{Browser: 0},
-	{MoreGamesButton: 0},
 	{Family1: 0},
 	{Level: 0},
 	{Phase: 0},
@@ -4831,12 +4834,23 @@ self.C3_JsPropNameTable = [
 	{Scale: 0},
 	{Sound: 0},
 	{FirstStart: 0},
+	{OwnedBuildings_Data: 0},
 	{TargetX: 0},
 	{TargetY: 0},
 	{X: 0},
 	{Y: 0},
 	{MoneyEarned: 0},
-	{Levelinit: 0}
+	{BuildedBuildings_Data: 0},
+	{Levelinit: 0},
+	{GameKey: 0},
+	{GameAction: 0},
+	{UserEmail: 0},
+	{UserFirstname: 0},
+	{UserLastname: 0},
+	{Username: 0},
+	{GameToOpen: 0},
+	{dataKey: 0},
+	{value: 0}
 ];
 }
 
@@ -5336,7 +5350,7 @@ self.C3_ExpressionFuncs = [
 		() => "Transition1",
 		() => "WallCompleted2",
 		() => 60,
-		() => "Level",
+		() => "BP_Level",
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
 			return () => f0("UILevelCompleted");
@@ -5347,7 +5361,8 @@ self.C3_ExpressionFuncs = [
 			const f1 = p._GetNode(1).GetBoundMethod();
 			return () => f0(f1(50, 100));
 		},
-		() => "Money",
+		() => "BP_MoneyEarned",
+		() => "BP_Money",
 		() => 675,
 		() => 6,
 		() => 927,
@@ -5390,8 +5405,8 @@ self.C3_ExpressionFuncs = [
 			return () => f0(f1(1, 25));
 		},
 		() => -100,
+		() => "Loader",
 		() => "Init",
-		() => "BuildedBuildings",
 		() => "UICity",
 		() => 55,
 		() => "z",
@@ -5584,6 +5599,7 @@ self.C3_ExpressionFuncs = [
 			const n0 = p._GetNode(0);
 			return () => (n0.ExpObject() - 75);
 		},
+		() => "BP_OwnedBuildings_Data",
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
 			return () => f0(0.5);
@@ -5607,6 +5623,7 @@ self.C3_ExpressionFuncs = [
 			const n1 = p._GetNode(1);
 			return () => n0.ExpObject(n1.ExpInstVar());
 		},
+		() => "BP_BuildedBuildings",
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
 			const n1 = p._GetNode(1);
@@ -5620,12 +5637,6 @@ self.C3_ExpressionFuncs = [
 		},
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
-			const f1 = p._GetNode(1).GetBoundMethod();
-			return () => f0(f1(2, 25));
-		},
-		() => "Loader",
-		p => {
-			const f0 = p._GetNode(0).GetBoundMethod();
 			return () => (279 * f0());
 		},
 		p => {
@@ -5633,9 +5644,7 @@ self.C3_ExpressionFuncs = [
 			return () => (221 + (279 * f0()));
 		},
 		() => -10,
-		() => "fx",
-		() => "https://codecanyon.net/user/vetx/portfolio",
-		() => "NewWindow"
+		() => "fx"
 ];
 
 

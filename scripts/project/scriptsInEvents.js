@@ -29,7 +29,6 @@ const scriptsInEvents = {
 					runtime.globalVars.Username = obj.payload.user.username;
 					//alert(runtime.globalVars.Username);
 				}
-				
 				else if(obj.action === "retrieve_user_data")
 				{
 					runtime.globalVars.Level = obj.payload.BP_Level;
@@ -38,9 +37,8 @@ const scriptsInEvents = {
 					//}
 					runtime.globalVars.Money = obj.payload.BP_Money;
 					
-			//	runtime.globalVars.OwnedBuildings_Data = obj.payload.BP_OwnedBuildings_Data;
 						
-					//runtime.globalVars.BuildedBuildings_Data = obj.payload.BP_BuildedBuildings;
+					runtime.globalVars.BuildedBuildings_Data = obj.payload.BP_BuildedBuildings;
 				
 					if (typeof obj.payload.BP_Level === 'undefined'){
 				runtime.globalVars.Level = 1;
@@ -50,8 +48,8 @@ const scriptsInEvents = {
 				runtime.globalVars.Money = 0;
 				}
 				
-			/*	if (typeof obj.payload.BP_OwnedBuildings_Data === 'undefined'){
-			 runtime.globalVars.OwnedBuildings_Data = ({"c2array":true,"size":[1,1,1],"data":[[[7]]]});} */
+				if (typeof obj.payload.BP_OwnedBuildings_Data === 'undefined'){
+			 runtime.globalVars.OwnedBuildings_Data = ({"c2array":true,"size":[1,1,1],"data":[[[7]]]});} 
 				 
 					if (typeof obj.payload.BP_BuildedBuildings === 'undefined'){
 			 runtime.globalVars.BuildedBuildings_Data = ({"c2array":true,"size":[1,3,1],"data":[[["22"],[2],[0]]]});}  
@@ -143,19 +141,6 @@ const scriptsInEvents = {
 	},
 
 	async Functions_es_Event18_Act1(runtime, localVars)
-	{
-		window.parent.postMessage(
-		{
-		    "action": "update_user_data",
-			"payload": {
-				"dataKey": localVars.dataKey,
-				"value" : localVars.value
-			}
-		},"*");
-		//alert("Posted")
-	},
-
-	async Functions_es_Event20_Act1(runtime, localVars)
 	{
 		window.parent.postMessage(
 		{
