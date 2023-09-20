@@ -4733,7 +4733,6 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Arr.Cnds.IsEmpty,
 		C3.Plugins.System.Cnds.TriggerOnce,
 		C3.Plugins.System.Exps.loadingprogress,
-		C3.Plugins.System.Cnds.OnLoadFinished,
 		C3.Plugins.Audio.Acts.Play,
 		C3.ScriptsInEvents.Functions_es_Event2_Act1,
 		C3.ScriptsInEvents.Functions_es_Event4_Act1,
